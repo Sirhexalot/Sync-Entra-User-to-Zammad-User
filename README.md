@@ -4,9 +4,9 @@ This workflow facilitates seamless synchronization between Entra (Microsoft Azur
 	1.	Fetch Entra Group Members: Retrieves users from a designated Entra group. These users are candidates for synchronization.
 	2.	Create Universal User Object: Extracts key user information, such as email, phone, and name, and formats it for Zammad compatibility.
 	3.	Synchronize with Zammad:
-	•	Identifies users in Zammad who need updates based on Entra data.
-	•	Adds new users from Entra to Zammad.
-	•	Deactivates users in Zammad if they are no longer in the Entra group.
+	4.	Identifies users in Zammad who need updates based on Entra data.
+	5.	Adds new users from Entra to Zammad.
+	6.	Deactivates users in Zammad if they are no longer in the Entra group.
 
 Key Features:
 

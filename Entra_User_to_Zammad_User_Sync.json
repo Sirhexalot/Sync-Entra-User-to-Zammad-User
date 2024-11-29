@@ -99,7 +99,9 @@
       "position": [
         -1140,
         480
-      ]
+      ],
+      "notesInFlow": true,
+      "notes": "Please enter the Entra group name of users to be synchronized."
     },
     {
       "parameters": {
@@ -131,11 +133,11 @@
               "value": "={{ $json.userPrincipalName }}"
             },
             {
-              "name": "firstname",
+              "name": "lastname",
               "value": "={{ $json.surname }}"
             },
             {
-              "name": "lastname",
+              "name": "firstname",
               "value": "={{ $json.givenName }}"
             },
             {
@@ -255,8 +257,8 @@
               }
             ]
           },
-          "firstname": "={{ $json.lastname }}",
-          "lastname": "={{ $json.firstname }}",
+          "firstname": "={{ $json.firstname }}",
+          "lastname": "={{ $json.lastname }}",
           "phone": "={{ $json.phone }}",
           "mobile": "={{ $json.mobile }}"
         }
@@ -278,8 +280,8 @@
     },
     {
       "parameters": {
-        "firstname": "={{ $json.lastname }}",
-        "lastname": "={{ $json.firstname }}",
+        "firstname": "={{ $json.firstname }}",
+        "lastname": "={{ $json.lastname }}",
         "additionalFields": {
           "customFieldsUi": {
             "customFieldPairs": [
@@ -323,8 +325,8 @@
               }
             ]
           },
-          "firstname": "={{ $json.lastname }}",
-          "lastname": "={{ $json.firstname }}",
+          "firstname": "={{ $json.firstname }}",
+          "lastname": "={{ $json.lastname }}",
           "phone": "={{ $json.phone }}",
           "mobile": "={{ $json.mobile }}"
         }
@@ -520,7 +522,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "99b4ac8c-e643-46d5-ab13-3a0a17cf635c",
+  "versionId": "b34ec4fb-ecfb-4508-b3a3-7d86eb0fd7da",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "494d0146a0f47676ad70a44a32086b466621f62da855e3eaf0ee51dee1f76753"

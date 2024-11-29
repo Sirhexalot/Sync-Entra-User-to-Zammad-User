@@ -1,4 +1,4 @@
-# Workflow: Entra (Microsoft Azure AD) to Zammad Synchronization
+# N8N - Workflow: Entra (Microsoft Azure AD) to Zammad Synchronization
 
 ## Description
 

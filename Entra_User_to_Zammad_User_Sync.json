@@ -274,8 +274,7 @@
           "id": "fj5GuzcJuNLQeMxz",
           "name": "Zammad Token Auth account"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -300,7 +299,7 @@
       "type": "n8n-nodes-base.zammad",
       "typeVersion": 1,
       "position": [
-        600,
+        560,
         500
       ],
       "credentials": {
@@ -308,8 +307,7 @@
           "id": "fj5GuzcJuNLQeMxz",
           "name": "Zammad Token Auth account"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -336,8 +334,8 @@
       "type": "n8n-nodes-base.zammad",
       "typeVersion": 1,
       "position": [
-        600,
-        900
+        560,
+        880
       ],
       "credentials": {
         "zammadTokenAuthApi": {
@@ -522,7 +520,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "e1ce512b-3336-4c39-a338-a74af2d88b00",
+  "versionId": "99b4ac8c-e643-46d5-ab13-3a0a17cf635c",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "494d0146a0f47676ad70a44a32086b466621f62da855e3eaf0ee51dee1f76753"

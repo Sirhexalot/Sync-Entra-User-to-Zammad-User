@@ -41,7 +41,10 @@ This workflow facilitates seamless synchronization between Entra (Microsoft Azur
 
 - Access to an Entra (Azure AD) environment with group data.
 - A Zammad instance with API credentials for user management.
-- A custom field in Zammad User Object (`entraid`) of type `String`.
+- A custom field in Zammad User Object (`entra_key`) of type `String`.
+- A custom field in Zammad User Object (`entra_object_type`) of type `Single selection field with two key value pairs
+  -  user = User
+  -  contact = Contact`.
 
 ---
 

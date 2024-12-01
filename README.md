@@ -1,8 +1,6 @@
-# n8n - Workflow: Entra (Microsoft Azure AD) to Zammad Synchronization
-
 ## Description
 
-This workflow facilitates seamless synchronization between Entra (Microsoft Azure AD) and Zammad. It automates the following processes:
+This workflow facilitates seamless synchronization between Entra Users (Microsoft Azure AD) and Zammad. It automates the following processes:
 
 1. **Fetch Entra Group Members**: Retrieves users from a designated Entra group. These users are candidates for synchronization.
 2. **Create Universal User Object**: Extracts key user information, such as email, phone, and name, and formats it for Zammad compatibility.

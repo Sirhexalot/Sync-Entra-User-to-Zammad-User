@@ -8,8 +8,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -1680,
-        160
+        -2140,
+        140
       ]
     },
     {
@@ -39,7 +39,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1620,
+        -1660,
         480
       ],
       "credentials": {
@@ -97,7 +97,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -1140,
+        -1120,
         480
       ],
       "notesInFlow": true,
@@ -113,8 +113,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        -580,
-        480
+        -700,
+        460
       ]
     },
     {
@@ -123,7 +123,7 @@
         "values": {
           "number": [
             {
-              "name": "entraid",
+              "name": "entra_key",
               "value": "={{ $json.id }}"
             }
           ],
@@ -147,7 +147,9 @@
             {
               "name": "phone",
               "value": "={{ $json.businessPhones[0] }}"
-            }
+            },
+            {},
+            {}
           ]
         },
         "options": {}
@@ -156,8 +158,8 @@
       "name": "Zammad Univeral User Object",
       "type": "n8n-nodes-base.set",
       "position": [
-        -320,
-        480
+        -240,
+        440
       ],
       "typeVersion": 1
     },
@@ -172,8 +174,8 @@
       "type": "n8n-nodes-base.zammad",
       "typeVersion": 1,
       "position": [
-        -320,
-        160
+        -1020,
+        140
       ],
       "credentials": {
         "zammadTokenAuthApi": {
@@ -193,8 +195,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        200,
-        180
+        240,
+        140
       ]
     },
     {
@@ -209,8 +211,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -840,
-        480
+        -880,
+        460
       ],
       "credentials": {
         "microsoftGraphSecurityOAuth2Api": {
@@ -240,7 +242,7 @@
       "type": "n8n-nodes-base.compareDatasets",
       "typeVersion": 2.3,
       "position": [
-        200,
+        240,
         460
       ]
     },
@@ -252,8 +254,12 @@
           "customFieldsUi": {
             "customFieldPairs": [
               {
-                "name": "entraid",
-                "value": "={{ $json.entraid }}"
+                "name": "entra_key",
+                "value": "={{ $json.entra_key }}"
+              },
+              {
+                "name": "entra_object_type",
+                "value": "user"
               }
             ]
           },
@@ -269,7 +275,7 @@
       "typeVersion": 1,
       "position": [
         560,
-        180
+        140
       ],
       "credentials": {
         "zammadTokenAuthApi": {
@@ -286,8 +292,12 @@
           "customFieldsUi": {
             "customFieldPairs": [
               {
-                "name": "entraid",
-                "value": "={{ $json.entraid }}"
+                "name": "entra_key",
+                "value": "={{ $json.entra_key }}"
+              },
+              {
+                "name": "entra_object_type",
+                "value": "user"
               }
             ]
           },
@@ -301,8 +311,8 @@
       "type": "n8n-nodes-base.zammad",
       "typeVersion": 1,
       "position": [
-        560,
-        500
+        580,
+        540
       ],
       "credentials": {
         "zammadTokenAuthApi": {
@@ -320,8 +330,8 @@
           "customFieldsUi": {
             "customFieldPairs": [
               {
-                "name": "entraid",
-                "value": "={{ $json.entraid }}"
+                "name": "entra_key",
+                "value": "={{ $json.entra_key }}"
               }
             ]
           },
@@ -336,8 +346,8 @@
       "type": "n8n-nodes-base.zammad",
       "typeVersion": 1,
       "position": [
-        560,
-        880
+        600,
+        840
       ],
       "credentials": {
         "zammadTokenAuthApi": {
@@ -351,8 +361,8 @@
         "mergeByFields": {
           "values": [
             {
-              "field1": "entraid",
-              "field2": "entraid"
+              "field1": "entra_key",
+              "field2": "entra_key"
             }
           ]
         },
@@ -367,6 +377,84 @@
         240,
         880
       ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "15da9b4f-46fa-4e9b-bd33-40ae79b88cd5",
+              "leftValue": "={{ $json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "9b37b75e-d694-441e-b5a5-8abeccbf4ed7",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -500,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1c9ca19d-18e3-470e-84cd-593794613c59",
+              "leftValue": "={{ $json.entra_object_type }}",
+              "rightValue": "user",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "9187eea8-48ec-4488-9bc9-45235ff88114",
+              "leftValue": "={{ $json.active }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -220,
+        140
+      ],
+      "id": "13ac19a6-6689-4e75-86d4-02ec1c0c64cd",
+      "name": "Select only active Users and entra_obect_type=\"user\""
     }
   ],
   "pinData": {},
@@ -376,6 +464,11 @@
         [
           {
             "node": "Get Zammad Users",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Groups from Entra",
             "type": "main",
             "index": 0
           }
@@ -419,7 +512,7 @@
       "main": [
         [
           {
-            "node": "Zammad Univeral User Object",
+            "node": "If",
             "type": "main",
             "index": 0
           }
@@ -451,17 +544,7 @@
       "main": [
         [
           {
-            "node": "Merge",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Find new Zammad Users",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Find removed Users",
+            "node": "Select only active Users and entra_obect_type=\"user\"",
             "type": "main",
             "index": 0
           }
@@ -506,11 +589,43 @@
     },
     "Find removed Users": {
       "main": [
-        [],
-        [],
         [
           {
             "node": "Deactivate Zammad User",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [],
+        []
+      ]
+    },
+    "Select only active Users and entra_obect_type=\"user\"": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Find new Zammad Users",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Find removed Users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Zammad Univeral User Object",
             "type": "main",
             "index": 0
           }
@@ -522,7 +637,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "b34ec4fb-ecfb-4508-b3a3-7d86eb0fd7da",
+  "versionId": "b726c830-9d26-4289-8f66-485850762df7",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "494d0146a0f47676ad70a44a32086b466621f62da855e3eaf0ee51dee1f76753"

@@ -1,4 +1,4 @@
-# Sync Entra User to Zammad User
+# n8n Workflow: Sync Entra User to Zammad User
 
 ## Description
 
